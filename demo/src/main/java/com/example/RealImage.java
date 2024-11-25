@@ -1,20 +1,18 @@
-import javax.swing.JFrame;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
+package com.example;
 
 public class RealImage implements MyImage {
-    private JFrame frame;
+    private String filename;
 
     public RealImage(String filename) {
-        frame = new JFrame();
-        ImageIcon icon = new ImageIcon(filename);
-        JLabel label = new JLabel(icon);
-        frame.add(label);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
+        this.filename = filename;
+        loadFromDisk();
+    }
+
+    private void loadFromDisk() {
+        System.out.println("Loading image: " + filename);
     }
 
     public void display() {
-        frame.setVisible(true);
+        System.out.println("Displaying image: " + filename);
     }
 }
